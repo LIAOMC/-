@@ -42,12 +42,27 @@
                 <li><a href="login.jsp">登录</a></li>
                 <%}else{%>
                 <li><a href="#"><img class="img-circle" width="30px" height="30px" src="img/photos/<%=user.getPhoto()%>"></a></li>
-                <li><a href="#"><%=user.getNickname()%></a></li>
-                <li><a href="logout.jsp">退出</a></li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
+                       aria-expanded="false">${sessionScope.user.nickname}<span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="userinfo.jsp">个人信息</a></li>
+                        <li><a href="change_password.jsp">修改密码</a></li>
+                        <li role="separator" class="divider"></li>
+                        <li><a href="javascript:logout()">退出</a></li>
+                    </ul>
+                </li>
                 <%}%>
                 <li><a href="signup.jsp">注册</a></li>
             </ul>
         </div>
     </div>
 </div>
-
+<script>
+    function logout(){
+        var result=confirm('你确定要退出系统？');
+        if(result){
+            window.location.href="logout.jsp";
+        }
+    }
+</script>
