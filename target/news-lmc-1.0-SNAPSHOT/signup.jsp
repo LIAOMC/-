@@ -31,7 +31,7 @@
             <div class="input-group">
                 <input type="text" name="validateCode" class="form-control">
                 <div class="input-group-btn">
-                    <div class="btn btn-default" onclick="sendValidateCode()">获取验证码</div><img src="getCodeServlet">
+                    <div class="btn btn-default" onclick="sendValidateCode()">获取验证码</div>
                 </div>
             </div>
         </div>

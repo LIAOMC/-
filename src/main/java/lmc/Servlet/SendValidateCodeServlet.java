@@ -19,7 +19,7 @@ public class SendValidateCodeServlet extends HttpServlet {
         String validateCode= RandomNumberUtil.getRandomNumberStr();
         request.getSession().setAttribute("validateCode",validateCode);
 
-        System.out.println("手机号码"+mobile+"，当前验证码："+validateCode);
+        System.out.println("验证码："+ mobile+"手机号码："+ validateCode);
         request.getRequestDispatcher("signup.jsp").forward(request,response);
     }
 
