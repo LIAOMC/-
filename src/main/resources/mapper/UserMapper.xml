@@ -15,4 +15,10 @@
     <insert id="addUser" >
         insert into user(account,password,nickname,photo,birthday,email,mobile,regDate,forbidden) values (#{account},#{password},#{nickname},#{photo},#{birthday},#{email},#{mobile},#{regDate},#{forbidden})
     </insert>
+    <update id="updateUser">
+        update user set nickName=#{nickname}, photo=#{photo}, birthday=#{birthday}, email=#{email}, mobile=#{mobile} where account=#{account}
+    </update>
+    <update id="changeUserPassword">
+        update user set password=#{password} where account=#{account}
+    </update>
 </mapper>

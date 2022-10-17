@@ -1,4 +1,4 @@
-<%@ page import="lmc.model.User" %><%--
+<%@ page import="java.text.SimpleDateFormat" %><%--
   Created by IntelliJ IDEA.
   User: zhao
   Date: 2022/10/12
@@ -14,9 +14,6 @@
 </head>
 <body>
 <jsp:include page="commons/header.jsp"></jsp:include>
-<%
-    User user=(User)session.getAttribute("user");
-%>
 <div class="container">
     <div class="container">
         <div class="panel panel-info">
@@ -26,41 +23,42 @@
                 </h3>
             </div>
             <div class="panel-body" style="padding: 20px;">
-                <form action="UserInfoServlet" class="form-horizontal" role="form" method="post"
+                <form action="UserInfoEditServlet" class="form-horizontal" role="form" method="post"
                       enctype="multipart/form-data">
+                    <input type="hidden" name="id" value="${user.id}">
                     <div class="form-group">
                         <label for="account" class="col-sm-2 control-label">账户：</label>
                         <div class="col-sm-10">
                             <input type="text" readonly class="form-control" name="account" id="account"
-                                   placeholder="请输入账户" value="<%=user.getAccount()%>">
+                                   placeholder="请输入账户" value="${user.account}">
                         </div>
                     </div>
                     <div class="form-group">
                         <label for="nickname" class="col-sm-2 control-label">昵称：</label>
                         <div class="col-sm-10">
                             <input type="text" class="form-control" name="nickname" id="nickname" placeholder="请输入昵称"
-                                   value="<%=user.getNickname()%>">
+                                   value="${user.nickname}">
                         </div>
                     </div>
                     <div class="form-group">
                         <label for="birthday" class="col-sm-2 control-label">生日：</label>
                         <div class="col-sm-10">
                             <input type="text" class="form-control" name="birthday" id="birthday"
-                                   placeholder="请选择您的出生日期" value="<%=user.getBirthday()%>">
+                                   placeholder="请选择您的出生日期" value="<%=session.getAttribute("birthday")%>">
                         </div>
                     </div>
                     <div class="form-group">
                         <label for="email" class="col-sm-2 control-label">电子邮件：</label>
                         <div class="col-sm-10">
                             <input type="text" class="form-control" name="email" id="email" placeholder="请输入电子邮件"
-                                   value="<%=user.getEmail()%>">
+                                   value="${user.email}">
                         </div>
                     </div>
                     <div class="form-group">
                         <label for="mobile" class="col-sm-2 control-label">手机号码：</label>
                         <div class="col-sm-10">
                             <input type="text" class="form-control" name="mobile" id="mobile" placeholder="请输入手机号码"
-                                   value="<%=user.getPhoto()%>">
+                                   value="${user.mobile}">
                         </div>
                     </div>
                     <div class="form-group">

@@ -1,5 +1,6 @@
 <%@ page import="lmc.dao.UserDao" %>
-<%@ page import="lmc.model.User" %><%--
+<%@ page import="lmc.model.User" %>
+<%@ page import="java.text.SimpleDateFormat" %><%--
   Created by IntelliJ IDEA.
   User: 41150
   Date: 2022-09-23

@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
+import java.text.SimpleDateFormat;
 
 @WebServlet("/LoginServlet")
 public class LoginServlet extends HttpServlet {
@@ -22,7 +23,11 @@ public class LoginServlet extends HttpServlet {
         User user=userDao.getUser(account,password);
 
         if(user!=null){
+            SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");//定义新的日期格式
+            //format():将给定的 Date 格式化为日期/时间字符串。即：date--->String
+            String dateString = formatter.format(user.getBirthday());
             HttpSession session = request.getSession();
+            session.setAttribute("birthday",dateString);
             session.setAttribute("user",user);//将账户信息写入session
 
             response.sendRedirect("index.jsp");//重定向到首页，实现页面跳转

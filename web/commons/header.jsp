@@ -1,8 +1,10 @@
-<%@ page import="lmc.dao.CategoryDao" %>
+
 <%@ page import="java.util.List" %>
+<%@ page import="lmc.dao.CategoryDao" %>
 <%@ page import="lmc.model.Category" %>
 <%@ page import="lmc.model.User" %>
-<%--
+<%@ page import="java.text.SimpleDateFormat" %>
+<%@ page import="java.util.Date" %><%--
   Created by IntelliJ IDEA.
   User: 41150
   Date: 2022-09-21
@@ -25,7 +27,8 @@
                     String tag = request.getParameter("tag"); //获取新闻标签参数
 
                     // 调用Dao，获取新闻分类列表
-                    List<Category> categoryList= new CategoryDao().getAllCategories();
+                    CategoryDao categoryDao = new CategoryDao();
+                    List<Category> categoryList = categoryDao.getAllCategories();
 
                     //获取session中保存的账户信息
                     User user = (User) session.getAttribute("user");
@@ -52,6 +55,7 @@
                         <li><a href="javascript:logout()">退出</a></li>
                     </ul>
                 </li>
+
                 <%}%>
                 <li><a href="signup.jsp">注册</a></li>
             </ul>
@@ -66,3 +70,4 @@
         }
     }
 </script>
+

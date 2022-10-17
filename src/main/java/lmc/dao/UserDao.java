@@ -9,11 +9,11 @@ import mapper.UserMapper;
 import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.session.SqlSession;
 
-import java.sql.Date;
-import java.sql.Timestamp;
+import java.sql.*;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.sql.Date;
 
 public class UserDao {
     public  User getUser(String account , String password){
@@ -49,5 +49,20 @@ public class UserDao {
         Boolean aBoolean = userMapper.addUser(map);
         return aBoolean;
     }
-
+    public void updateUser(User user) {
+        String nickname=user.getNickname();
+        String photo=user.getPhoto();
+        Date birthday=new java.sql.Date(user.getBirthday().getTime());
+        String email=user.getEmail();
+        String mobile=user.getMobile();
+        String account=user.getAccount();
+        SqlSession sqlSession= SqlSessionUtils.getSqlSession();
+        UserMapper userMapper = sqlSession.getMapper(UserMapper.class);
+        userMapper.updateUser(nickname,photo,birthday,email,mobile,account);
+    }
+    public void changeUserPassword(String account,String password){
+        SqlSession sqlSession= SqlSessionUtils.getSqlSession();
+        UserMapper userMapper = sqlSession.getMapper(UserMapper.class);
+        userMapper.changeUserPassword(account,password);
+    }
 }
