@@ -7,5 +7,8 @@
     <select id="getAllTags" resultType="lmc.model.Tag">
         select * from tag
     </select>
-
+    <!--getTagByNewsId(int newsId)-->
+    <select id="getTagByNewsId" resultType="lmc.model.Tag">
+        select * from tag,news_tag where tag.id=news_tag.tag_id and news_tag.news_id=#{newsId}
+    </select>
 </mapper>

@@ -22,5 +22,7 @@
         <mapper resource="mapper/NewsMapper.xml"/>
         <mapper resource="mapper/TagMapper.xml"/>
         <mapper resource="mapper/UserMapper.xml"/>
+        <mapper resource="mapper/CommentMapper.xml"/>
+        <mapper resource="mapper/AdminMapper.xml"/>
     </mappers>
 </configuration>

@@ -23,7 +23,7 @@ public class LoginServlet extends HttpServlet {
         User user=userDao.getUser(account,password);
 
         if(user!=null){
-            SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");//定义新的日期格式
+            SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");//定义新的日期格式
             //format():将给定的 Date 格式化为日期/时间字符串。即：date--->String
             String dateString = formatter.format(user.getBirthday());
             HttpSession session = request.getSession();

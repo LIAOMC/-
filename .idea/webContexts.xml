@@ -3,8 +3,11 @@
   <component name="WebContextManager">
     <option name="state">
       <map>
+        <entry key="file://$PROJECT_DIR$/web/commons" value="file://$PROJECT_DIR$/web" />
         <entry key="file://$PROJECT_DIR$/web/commons/header.jsp" value="file://$PROJECT_DIR$/web/commons" />
         <entry key="file://$PROJECT_DIR$/web/signup.jsp" value="file://$PROJECT_DIR$/web" />
+        <entry key="file://$PROJECT_DIR$/webapp/commons/comment.jsp" value="file://$PROJECT_DIR$/webapp/commons" />
+        <entry key="file://$PROJECT_DIR$/webapp/news.jsp" value="file://$PROJECT_DIR$/webapp" />
       </map>
     </option>
   </component>
